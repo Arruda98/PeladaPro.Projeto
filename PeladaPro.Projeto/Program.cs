@@ -7,15 +7,15 @@ namespace Pelada.Pro
     {
         static void Main(string[] args)
         {
-            try
-            {
-                var jogador = new Player(name: "Lucas", skillLevel: 8, position: PlayerPosition.Forward, age: 25);
-                Console.WriteLine("Jogador adicionado com sucesso");
-            }
-            catch (ArgumentException ex)
-            {
-                Console.WriteLine($"Erro: {ex.Message}");
-            }
+            var casualPlayer = new CasualPlayer(
+                name: "Jefferson",
+                age: 28,
+                position: PlayerPosition.Midfielder,
+                skillLevel: 7,
+                pricePerGame: 45.00m
+            );
+
+            Console.WriteLine($"{casualPlayer.Name} - Valor por jogo: R$ {casualPlayer.PricePerGame}");
         }
     }
 }
