@@ -1,8 +1,9 @@
-﻿using PeladaPro.Projeto.Enum;
+﻿using System;
+using PeladaPro.Projeto.Enum;
 
 namespace PeladaPro.Projeto
 {
-    internal class Player
+    internal class Player : IComparable<Player>
     {
         private string _name;
         private int _skillLevel;
@@ -54,6 +55,11 @@ namespace PeladaPro.Projeto
         public virtual decimal CalculateAmountDue(int gamesPlayed)
         {
             return 0;
+        }
+
+        public int CompareTo(Player other)
+        {
+            return this.SkillLevel.CompareTo(other.SkillLevel);
         }
     }
 }
