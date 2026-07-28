@@ -10,5 +10,10 @@ namespace PeladaPro.Projeto
         {
             this.PricePerGame = pricePerGame;
         }
+
+        public override decimal CalculateAmountDue(int gamesPlayed)
+        {
+            return PricePerGame * gamesPlayed;
+        }
     }
 }

@@ -10,5 +10,11 @@ namespace PeladaPro.Projeto
         {
             this.MonthlyFee = monthlyFee;
         }
+
+        public override decimal CalculateAmountDue(int gamesPlayed)
+        {
+            return MonthlyFee;
+        }
+
     }
 }

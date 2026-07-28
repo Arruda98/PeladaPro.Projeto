@@ -50,5 +50,10 @@ namespace PeladaPro.Projeto
             this.Age = age;
             this.Position = position;
         }
+
+        public virtual decimal CalculateAmountDue(int gamesPlayed)
+        {
+            return 0;
+        }
     }
 }
