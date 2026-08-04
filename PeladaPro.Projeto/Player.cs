@@ -3,12 +3,12 @@ using PeladaPro.Projeto.Enum;
 
 namespace PeladaPro.Projeto
 {
-    public class Player : IComparable<Player>
+    public abstract class Player : IComparable<Player>
     {
         private string _name;
         private int _skillLevel;
         private int _age;
-
+        public List<Warning> Warnings {  get; set; }
         public string Name
         {
             get { return _name; }
@@ -40,7 +40,6 @@ namespace PeladaPro.Projeto
                 if (value < 1 || value > 10)
                     throw new ArgumentException("O nivel precisa ser entre 1 e 10.");
                 _skillLevel = value;
-
             }
         }
 
@@ -50,16 +49,19 @@ namespace PeladaPro.Projeto
             this.SkillLevel = skillLevel;
             this.Age = age;
             this.Position = position;
+            this.Warnings = new List<Warning>();
         }
 
-        public virtual decimal CalculateAmountDue(int gamesPlayed)
-        {
-            return 0;
-        }
+        public abstract decimal CalculateAmountDue(int gamesPlayed);
 
         public int CompareTo(Player other)
         {
             return this.SkillLevel.CompareTo(other.SkillLevel);
+        }
+
+        public void AddWarning(CardType type, DateTime date)
+        {
+            Warnings.Add(new Warning(type, date));
         }
     }
 }

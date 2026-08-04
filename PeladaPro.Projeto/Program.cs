@@ -16,6 +16,15 @@ namespace Pelada.Pro
 
             foreach (var player in team.Players)
                 Console.WriteLine($"- {player.Name} ({player.Position})");
+
+            var jogador = new CasualPlayer(name: "Pirlo", age: 29, position: PlayerPosition.Midfielder, skillLevel: 8, pricePerGame: 15m);
+
+            jogador.AddWarning(CardType.Yellow, DateTime.Now);
+            Console.WriteLine($"{jogador.Name} tem {jogador.Warnings.Count}  adevertência(s).");
+
+            jogador.AddWarning(CardType.Red, DateTime.Now);
+            Console.WriteLine($"{jogador.Name} tem {jogador.Warnings.Count}  adevertência(s).");
+
         }
     }
 }
