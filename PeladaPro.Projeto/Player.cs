@@ -3,7 +3,7 @@ using PeladaPro.Projeto.Enum;
 
 namespace PeladaPro.Projeto
 {
-    internal class Player : IComparable<Player>
+    public class Player : IComparable<Player>
     {
         private string _name;
         private int _skillLevel;

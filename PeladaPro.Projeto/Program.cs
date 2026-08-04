@@ -7,22 +7,15 @@ namespace Pelada.Pro
     {
         static void Main(string[] args)
         {
-            var jogadores = new List<Player>
-            {
-                new MonthlyPlayer(name: "Jefferson", age: 28, position: PlayerPosition.Forward, skillLevel: 7, monthlyFee: 80m),
-                new CasualPlayer(name: "Pirlo", age: 29, position: PlayerPosition.Forward, skillLevel: 9, pricePerGame: 15m),
-                new MonthlyPlayer(name: "Bola", age: 28, position: PlayerPosition.Midfielder, skillLevel: 4, monthlyFee: 80m),
-            };
+            var team = new Team("Pelada do Cobaia");
 
-            Console.WriteLine("Antes de ordenar:");
-            foreach (var jogador in jogadores)
-                Console.WriteLine($"{jogador.Name} - nível {jogador.SkillLevel}");
+            team.AddPlayer(new MonthlyPlayer(name: "Jefferson", age: 27, position: PlayerPosition.Forward, skillLevel: 7, monthlyFee: 80m));
+            team.AddPlayer(new CasualPlayer(name: "Pirlo", age: 29, position: PlayerPosition.Midfielder, skillLevel: 8, pricePerGame: 15m));
 
-            jogadores.Sort();
+            Console.WriteLine($"Time: {team.Name}");
 
-            Console.WriteLine("\nDepois de ordenar:");
-            foreach (var jogador in jogadores)
-                Console.WriteLine($"{jogador.Name} - nível {jogador.SkillLevel}");
+            foreach (var player in team.Players)
+                Console.WriteLine($"- {player.Name} ({player.Position})");
         }
     }
 }
