@@ -16,5 +16,11 @@ namespace PeladaPro.Projeto
             return MonthlyFee;
         }
 
+        public static MonthlyPlayer PromoteFromCasual (CasualPlayer casual, decimal monthlyFee)
+        {
+            var promoted = new MonthlyPlayer(casual.Name, casual.Age, casual.Position, casual.SkillLevel, monthlyFee);
+            promoted.Warnings = casual.Warnings;
+            return promoted;
+        }
     }
 }

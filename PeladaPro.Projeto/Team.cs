@@ -18,5 +18,12 @@ namespace PeladaPro.Projeto
         {
             Players.Add(player);
         }
+
+        public void PromotePlayer(CasualPlayer casual, decimal monthlyFee)
+        {
+            var promoted = MonthlyPlayer.PromoteFromCasual(casual, monthlyFee);
+            Players.Remove(casual);
+            Players.Add(promoted);
+        }
     }
 }

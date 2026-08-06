@@ -10,21 +10,20 @@ namespace Pelada.Pro
             var team = new Team("Pelada do Cobaia");
 
             team.AddPlayer(new MonthlyPlayer(name: "Jefferson", age: 27, position: PlayerPosition.Forward, skillLevel: 7, monthlyFee: 80m));
-            team.AddPlayer(new CasualPlayer(name: "Pirlo", age: 29, position: PlayerPosition.Midfielder, skillLevel: 8, pricePerGame: 15m));
+            
+            var pirlo = new CasualPlayer(name: "Pirlo", age: 29, position: PlayerPosition.Midfielder, skillLevel: 8, pricePerGame: 15m);
+            team.AddPlayer(pirlo);
 
-            Console.WriteLine($"Time: {team.Name}");
+            Console.WriteLine("Antes da promoção");
+            foreach (var p in team.Players)
+                Console.WriteLine($"- {p.Name} ({p.GetType().Name})");
 
-            foreach (var player in team.Players)
-                Console.WriteLine($"- {player.Name} ({player.Position})");
+            team.PromotePlayer(pirlo, monthlyFee: 80m);
 
-            var jogador = new CasualPlayer(name: "Pirlo", age: 29, position: PlayerPosition.Midfielder, skillLevel: 8, pricePerGame: 15m);
-
-            jogador.AddWarning(CardType.Yellow, DateTime.Now);
-            Console.WriteLine($"{jogador.Name} tem {jogador.Warnings.Count}  adevertência(s).");
-
-            jogador.AddWarning(CardType.Red, DateTime.Now);
-            Console.WriteLine($"{jogador.Name} tem {jogador.Warnings.Count}  adevertência(s).");
-
+            Console.WriteLine("\nDepois da promoção: ");
+            foreach(var p in team.Players)
+                Console.WriteLine($"- {p.Name} ({p.GetType().Name})");
+            
         }
     }
 }
